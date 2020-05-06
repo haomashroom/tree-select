@@ -1,0 +1,151 @@
+.head-title{
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    font-weight: bold;
+    background: #cccccc;
+    border-bottom: 1px solid #c5c1c1;
+}
+
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.head-nav{
+    display: flex;
+    padding: 0px 15px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    height: 44px;
+    line-height: 44px;
+}
+
+.tree-content{
+    width: 100%;
+    display: flex;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #cccccc;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    clear: both;
+    flex-direction: row;
+    will-change: transform;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+}
+
+.tree-menu{
+    display: flex;
+    width: 50%;
+    min-height: inherit;
+    max-height: 400px;
+    overflow: hidden;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    -webkit-overflow-scrolling: touch;
+    background-color: #fff;
+}
+.tree-menu:nth-child(even){
+    background-color: #f5f5f5;
+}
+.tree-box{
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+.ui-link{
+    color: #333;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    border-bottom: 1px solid #cccccc;
+    padding: 0 15px;
+}
+.tree-item.selected{
+    position: relative;
+}
+.tree-item.selected::after{
+    content: '';
+    display: block;
+    width: 5px;
+    height: 12px;
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    border: 2px solid #f23030;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(45deg);
+}
+.tree-header{
+    display: flex;
+    flex-direction: column;
+}
+.head-nav{
+    overflow: hidden;
+    /*overflow-x: auto;*/
+    /*overflow-y: hidden;*/
+    /*最外层使用css3中的box横向自适应布局，让浏览器计算内容布局*/
+    /*display: -moz-box;*/
+    /*display: -webkit-box;*/
+    display: block;
+    white-space: nowrap;
+}
+.nav-item{
+    font-size:14px;
+    font-weight: bold;
+    color: #222;
+    padding: 0 8px;
+    position: relative;
+    margin-right: .15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40%;
+    display: inline-block;
+    height: 100%;
+}
+.nav-empty{
+    color: #949292;
+}
+.nav-content{
+    text-align: left;
+    width: fit-content;
+    min-width: -webkit-fill-available;
+}
+.nav-item.selected{
+    color: #f23030;
+}
+.nav-item.selected::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #f23030;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
