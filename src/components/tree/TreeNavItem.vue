@@ -40,6 +40,8 @@
                 this.treeSelect.closeOtherNavItem(this);
                 this.open();
                 this.treeSelect.getActiveNavItemIndex(this);
+                //触发外置点击事件
+                this.treeSelect.clickNavItem(this);
             }
         }
 

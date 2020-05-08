@@ -1,5 +1,5 @@
 <template>
-    <li @click.stop="handleClick" :class="['tree-item',{'selected':this.model.open}]"><a href="javascript:void(0)" class="ui-link">{{model.name}}</a></li>
+    <li @click.stop="handleClick" :class="['tree-item',{'selected':this.model.open}]"><a href="javascript:void(0)" class="menu-link">{{model.name}}</a></li>
 </template>
 <script>
     import { findComponentUpward } from '../../utils/utils';
@@ -34,10 +34,18 @@
                 this.$forceUpdate();
                 this.$set(this.model,'open',!this.model.open);
             },
+            addSubItems(array){
+                this.model.children = array;
+            },
             handleClick() {
+                //判断是否是叶子节点
+                if(!this.model.children||this.model.children.length===0){
+                    this.menu.treeSelect.renderLeaf(this.model,this);
+                }
                 this.menu.closeOtherItem(this);
-                this.toggle();
+                this.open();
                 this.menu.treeSelect.renderMenu(this.menu,this);
+                this.menu.treeSelect.clickMenuItem(this.model,this);
             }
         }
     }

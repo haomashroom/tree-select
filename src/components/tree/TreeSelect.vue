@@ -21,7 +21,6 @@
     import TreeMenuItem from './TreeMenuItem.vue';
     import TreeMenu from './TreeMenu.vue';
     import TreeNavItem from'./TreeNavItem.vue';
-    import './tree-select.css'
     import Emitter from '../../mixins/emitter';
     import Scroll from '../scroll/Scroll.vue'
     import { findComponentsDownward } from '../../utils/utils';
@@ -82,6 +81,9 @@
         },
         created(){
             this.touch = {}
+        },
+        mounted(){
+            this.initHandle();
         },
         methods:{
             tabsTouchStart(e){
@@ -231,8 +233,28 @@
             addMenu(model){
                 this.menuList.push(model);
             },
+            //点击导航按钮
+            clickNavItem(navItem){
+                this.$emit('on-clickNavItem',navItem);
+            },
+            //点击菜单栏按钮
+            clickMenuItem(model,menuItem){
+                this.$emit('on-clickMenuItem',model,menuItem);
+            },
+            renderLeaf(model,menuItem){
+                this.$emit('on-renderLeaf',model,menuItem);
+            },
+            //派发事件
+            initHandle(){
+                this.$on('clickNavItem',this.clickNavItem);
+                this.$on('clickMenuItem',this.clickMenuItem);
+                this.$on('renderLeaf',this.renderLeaf);
+            }
         }
 
     }
-</script>  
+</script>
+<style scoped>
+    @import "./tree-select.css";
+</style>
     

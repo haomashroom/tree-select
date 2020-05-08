@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <div class="box">
-          <tree-select :data="list"></tree-select>
+          <tree-select :data="list" @on-clickNavItem="clickNavItem" @on-clickMenuItem="clickMenuItem" @on-renderLeaf="renderLeaf"></tree-select>
       </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
         },
         data(){
             return{
-                list:[]
+                list:[],
             }
         },
         created(){
@@ -26,7 +26,17 @@
             this.list = [res];
         },
         methods:{
-
+            clickNavItem(navItem){
+                console.log("navItem1",navItem);
+            },
+            clickMenuItem(model,menuItem){
+                console.log("model111",model);
+                console.log("model22",menuItem);
+            },
+            renderLeaf(model,menuItem){
+                var data1 = [{name:"新数据大可",children:[{name:"测试数据1"}]},{name:"新数据2",children:[{name:"测试数据2"}]}];
+                menuItem.addSubItems(data1);
+            },
 
         }
     }

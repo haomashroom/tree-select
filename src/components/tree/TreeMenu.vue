@@ -1,5 +1,5 @@
 <template>
-   <Scroll class="tree-menu" :data="model.children">
+   <Scroll class="tree-menu" :data="model.children" ref="scroll-menu">
        <ul class="tree-box">
            <TreeMenuItem v-for="(item,index) in model.children" :model="item" :key="index" ref="menuItem"></TreeMenuItem>
            <!--<li @click.stop="handleClick" :class="['tree-item',{'selected':this.model.open}]"><a href="javascript:void(0)" class="ui-link">{{model.name}}</a></li>-->
@@ -21,16 +21,13 @@
         props: {
             model:{
                 type: Object,
-                default () {
-                    return {};
-                }
             },
-        },
-        created(){
-            this.treeSelect = findComponentUpward(this, 'treeSelect');
         },
         data() {
             return {}
+        },
+        created(){
+            this.treeSelect = findComponentUpward(this, 'treeSelect');
         },
         methods:{
             closeOtherItem(MenuItem){
