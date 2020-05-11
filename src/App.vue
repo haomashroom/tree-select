@@ -26,13 +26,16 @@
             this.list = [res];
         },
         methods:{
+            //点击导航按钮
             clickNavItem(navItem){
                 console.log("navItem1",navItem);
             },
+            //点击菜单节点
             clickMenuItem(model,menuItem){
                 console.log("model111",model);
                 console.log("model22",menuItem);
             },
+            //点击最后一个叶子节点
             renderLeaf(model,menuItem){
                 var data1 = [{name:"新数据大可",children:[{name:"测试数据1"}]},{name:"新数据2",children:[{name:"测试数据2"}]}];
                 menuItem.addSubItems(data1);
