@@ -1,12 +1,13 @@
 # tree-select
 
-![Image text]()
+![Image text](https://github.com/haomashroom/tree-select/blob/master/data/readme.jpg)
 
 ## 介绍
 
-###多层级动态展开菜单（适用于手册、树形结构、多层级选项卡、目录导航等等）
+### 多层级动态展开菜单（适用于手册、树形结构、多层级选项卡、目录导航等等）
 
-###初始化
+### 初始化
+```
        created(){
             var res = {};
             res.name = "全部";
@@ -31,7 +32,7 @@
             },
 
         }
-
+```
 ## Project setup
 ```
 npm install
